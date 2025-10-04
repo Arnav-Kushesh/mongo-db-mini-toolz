@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>MongoDB Mini Toolz</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>MongoDB Mini Toolz</h1>
+
+      <div class="grid">
+        <div class="panel">
+          <h2>Backup</h2>
+          <form id="backupForm">
+            <label
+              >Mongo URI
+              <input
+                name="uri"
+                required
+                placeholder="mongodb://localhost:27017"
+            /></label>
+            <label>Database name <input name="dbName" required /></label>
+            <label
+              >Batch size <input name="batchSize" type="number" value="1000"
+            /></label>
+            <button type="submit">Backup</button>
+          </form>
+          <div class="collections" id="backupCollections"></div>
+          <div class="log" id="backupLog"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Data Transfer</h2>
+          <form id="transferForm">
+            <label>Source URI <input name="srcUri" required /></label>
+            <label>Source DB <input name="srcDb" required /></label>
+            <label>Target URI <input name="dstUri" required /></label>
+            <label>Target DB <input name="dstDb" required /></label>
+            <label
+              >Batch size <input name="batchSize" type="number" value="1000"
+            /></label>
+            <button type="submit">Transfer</button>
+          </form>
+          <div class="collections" id="transferCollections"></div>
+          <div class="log" id="transferLog"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Upload Data (zip)</h2>
+          <form id="uploadForm" enctype="multipart/form-data">
+            <label
+              >Zip file <input type="file" name="file" accept=".zip" required
+            /></label>
+            <label>Target URI <input name="uri" required /></label>
+            <label>Target DB <input name="dbName" required /></label>
+            <label
+              >Batch size <input name="batchSize" type="number" value="1000"
+            /></label>
+            <button type="submit">Upload</button>
+          </form>
+          <div class="collections" id="uploadCollections"></div>
+          <div class="log" id="uploadLog"></div>
+        </div>
+      </div>
+      <!-- grid -->
+    </div>
+    <!-- container -->
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/client.js"></script>
+  </body>
+</html>
